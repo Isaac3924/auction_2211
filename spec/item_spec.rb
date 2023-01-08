@@ -28,11 +28,17 @@ RSpec.describe Item do
         let(:attendee2){ Attendee.new({name: 'Bob', budget: '$75'}) }
         let(:attendee3){ Attendee.new({name: 'Mike', budget: '$100'}) }
 
-        it "#add_bid" do
+        before do 
             item1.add_bid(attendee2, 20)
             item1.add_bid(attendee1, 22)
+        end
 
+        it "#add_bid" do
             expect(item1.bids).to eq( { attendee2 => 20, attendee1 => 22 } )
+        end
+
+        xit "#current_high_bid" do
+            expect(item1.current_high_bid).to eq(22)
         end
     end
 end
