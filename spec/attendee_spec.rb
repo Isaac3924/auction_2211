@@ -9,8 +9,9 @@ RSpec.describe Attendee do
             expect(attendee).to be_a(Attendee)
         end
 
-        xit "can read attributes" do
-            expect(item1.name).to eq('Chalkware Piggy Bank')
+        it "can read attributes" do
+            expect(attendee.name).to eq('Megan')
+            expect(attendee.budget).to eq('$50')
         end
     end
 end
