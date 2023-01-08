@@ -1,5 +1,5 @@
 require 'rspec'
-require '.lib/item'
+require './lib/item'
 
 RSpec.describe Item do
     describe "Iteration 1" do
