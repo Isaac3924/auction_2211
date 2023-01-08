@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/auctions'
+require './lib/auction'
 require './lib/item'
 
 RSpec.describe Auction do
@@ -9,11 +9,11 @@ RSpec.describe Auction do
         let(:item1){ Item.new('Chalkware Piggy Bank') }
         let(:item2){ Item.new('Bamboo Picture Frame') }
 
-        xit "#initializes" do
+        it "#initializes" do
             expect(auction).to be_a(Auction)
         end
 
-        xit "can read attributes" do
+        it "can read attributes" do
             expect(auction.items).to eq([])
         end
 
