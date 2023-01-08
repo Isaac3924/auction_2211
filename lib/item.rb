@@ -4,7 +4,7 @@ class Item
 
     def initialize(name)
         @name = name
-        @bids = { }
+        @bids = {}
     end
 
     def add_bid(attendee, bid)

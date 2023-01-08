@@ -59,7 +59,7 @@ RSpec.describe Auction do
         end
 
         it "#unpopular_items" do
-            expect(auction.item_names).to eq([item2, item3, item5])
+            expect(auction.unpopular_items).to eq([item2, item3, item5])
         end
     end
 end
