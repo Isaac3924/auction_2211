@@ -17,7 +17,7 @@ RSpec.describe Auction do
             expect(auction.items).to eq([])
         end
 
-        xit "#add_item" do
+        it "#add_item" do
             auction.add_item(item1)
             auction.add_item(item2)
 
