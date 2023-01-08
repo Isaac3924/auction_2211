@@ -11,7 +11,7 @@ class Item
         bids[attendee] = bid
     end
 
-    def add_bid(attendee, bid)
-        bids[attendee] = bid
+    def current_high_bid
+        bids.max_by { |attendee, bid| bid }[1]
     end
 end
