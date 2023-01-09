@@ -1,10 +1,8 @@
 class Auction
-    attr_reader :items,
-                :bidders
+    attr_reader :items
 
     def initialize
         @items = []
-        @bidders = []
     end
 
     def add_item(item)
@@ -39,5 +37,23 @@ class Auction
         end
 
         true_potential.sum
+    end
+
+    def bidders
+        all_items_bids = items.find_all do |item|
+            item.bids != {}
+        end
+
+        all_bids = []
+
+        all_items_bids.each do |item|
+            item.bids.keys.each do |attendee|
+                if all_bids.include?(attendee) == false
+                    all_bids << attendee
+                end
+            end
+        end
+
+        all_bids
     end
 end
