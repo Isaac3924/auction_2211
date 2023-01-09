@@ -72,4 +72,37 @@ RSpec.describe Auction do
             expect(auction.potential_revenue).to eq(87)
         end
     end
+
+    describe "Iteration 3" do
+        let(:item1){ Item.new('Chalkware Piggy Bank') }
+        let(:item2){ Item.new('Bamboo Picture Frame') }
+        let(:item3){ Item.new('Homemade Chocolate Chip Cookies') }
+        let(:item4){ Item.new('2 Days Dogsitting') }
+        let(:item5){ Item.new('Forever Stamps') }
+
+        let(:attendee1){ Attendee.new({name: 'Megan', budget: '$50'}) }
+        let(:attendee2){ Attendee.new({name: 'Bob', budget: '$75'}) }
+        let(:attendee3){ Attendee.new({name: 'Mike', budget: '$100'}) }
+        let(:attendee4){ Attendee.new({name: 'Nate', budget: '$3.75'}) }
+
+
+        let(:auction){ Auction.new }
+
+        before do 
+            auction.add_item(item1)
+            auction.add_item(item2)
+            auction.add_item(item3)
+            auction.add_item(item4)
+            auction.add_item(item5)
+
+            item1.add_bid(attendee1, 22)
+            item1.add_bid(attendee2, 20)
+            item3.add_bid(attendee2, 30)
+            item4.add_bid(attendee3, 50)
+        end
+
+        it "#auction.bidders" do
+            expect(auction.bidders).to eq([attendee1, attendee2, attendee3])
+        end
+    end
 end
