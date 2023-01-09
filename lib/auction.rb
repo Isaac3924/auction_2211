@@ -24,4 +24,18 @@ class Auction
             item.bids == {}
         end
     end
+
+    def potential_revenue
+        potential_items = items.find_all do |item|
+            item.bids != {}
+        end
+
+        true_potential= []
+
+        potential_items.each do |item|
+            true_potential << item.current_high_bid
+        end
+
+        true_potential.sum
+    end
 end
