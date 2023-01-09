@@ -58,6 +58,21 @@ class Auction
     end
 
     def bidder_info
-        
+        bidder_info = Hash.new { |attendee, info| attendee[info] = { } }
+
+        all_items_bid_on = items.find_all do |item|
+            item.bids != {}
+        end
+
+        all_items_bid_on.find_all do |item|
+            item.bids.keys.each do |attendee|
+                if 
+            end
+        end
+
+        bidders.each do |bidder|
+            require 'pry'; binding.pry
+            bidder_info[bidder] = { budget: bidder.budget, items: [] }
+        end
     end
 end
