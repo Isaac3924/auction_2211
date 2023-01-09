@@ -83,8 +83,6 @@ RSpec.describe Auction do
         let(:attendee1){ Attendee.new({name: 'Megan', budget: '$50'}) }
         let(:attendee2){ Attendee.new({name: 'Bob', budget: '$75'}) }
         let(:attendee3){ Attendee.new({name: 'Mike', budget: '$100'}) }
-        let(:attendee4){ Attendee.new({name: 'Nate', budget: '$3.75'}) }
-
 
         let(:auction){ Auction.new }
 
@@ -101,8 +99,27 @@ RSpec.describe Auction do
             item4.add_bid(attendee3, 50)
         end
 
-        it "#auction.bidders" do
+        it "#bidders" do
             expect(auction.bidders).to eq([attendee1, attendee2, attendee3])
+        end
+
+        it "#bidder_info" do
+            expected = { 
+                          attendee1 => {
+                                :budget => 50,
+                                :items => [item1]
+                            },
+                            attendee2 => {
+                                :budget => 75,
+                                :items => [item1, item3]
+                            },
+                            attendee3 => {
+                                :budget => 100,
+                                :items => [item4]
+                            } 
+            }
+
+            expect(auction.bidder_info).to eq(expected)
         end
     end
 end

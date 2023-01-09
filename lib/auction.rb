@@ -56,4 +56,8 @@ class Auction
 
         all_bids
     end
+
+    def bidder_info
+        
+    end
 end
